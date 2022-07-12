@@ -137,7 +137,40 @@ class Unit extends Item
                 'propType' => ''
             ],
             'force' => 1,
-            'flags' => 5129,
+            'flags' => 1041,
+            'from' => 0,
+            'to' => 0
+        ];
+
+        $response = json_decode($api_wialon->core_search_items($params));
+        $units = collect($response->items)->transform(function ($unit) {
+            return new static($unit);
+        });
+
+        $api_wialon->afterCall();
+        return $units;
+    }
+    
+    /**
+     * List all UNITS GROUPS
+     * @return Collection
+     * @throws WialonErrorException
+     */
+    public static function groups(): Collection
+    {
+        $api_wialon = new Wialon();
+        $api_wialon->beforeCall();
+
+        $params = [
+            'spec' => [
+                'itemsType' => 'avl_unit_group',
+                'propName' => '',
+                'propValueMask' => '*',
+                'sortType' => 'sys_name',
+                'propType' => ''
+            ],
+            'force' => 1,
+            'flags' => 1,
             'from' => 0,
             'to' => 0
         ];
