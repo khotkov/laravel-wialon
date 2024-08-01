@@ -11,7 +11,7 @@
   ],
   "require": {
     "php": "^8.0",
-    "laravel/framework": "^9.0",
+    "laravel/framework": "^10.0",
     "ext-json": "*"
   },
   "autoload": {
@@ -21,7 +21,7 @@
   },
   "require-dev": {
     "orchestra/testbench": "~5.0",
-    "phpunit/phpunit": "^9.1"
+    "phpunit/phpunit": "^10.0"
   },
   "extra": {
     "laravel": {
